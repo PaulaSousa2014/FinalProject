@@ -1,9 +1,17 @@
 <template>
-<h1>Hola</h1>
+    <h1>Task App</h1>
+    <ul>
+        <li>
+            <router-link :to="{name: 'home'}">Home</router-link>
+        </li>
+        <li>
+            <router-link :to="{name: 'login'}">Login</router-link>
+        </li>
+    </ul>
+    <router-view></router-view>
 </template>
 <script setup>
-console.log(process.env.NODE_ENV)
-</script>
 
+</script>
 <style scoped>
 </style>
