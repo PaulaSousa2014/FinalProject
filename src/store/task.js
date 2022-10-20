@@ -12,8 +12,9 @@ export const useTaskStore = defineStore('task', {
     },
     actions: {
 
-        setTask() {
+        setTask(task) {
             //TODO guardar en el stado las task que nos de supabase
+            this.tasks = task
         },
 
         updateTask(id, task) {
