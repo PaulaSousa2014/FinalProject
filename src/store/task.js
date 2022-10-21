@@ -25,12 +25,12 @@ export const useTaskStore = defineStore('task', {
         deleteTask(id) {
             // TODO modificar el estado borrando esa task
             // Encontramos el indice de ese id y eliminamos ese indice de la array
+             id = authStore.id;
+             this.tasks = task.id
+            
         },
 
-        addTask(task) {
-            // TODO modificar el estado de task haciendo un push de la task
-            // Comprobar que tenemos el id al insertar el registro, en caso de no tenerlo tendriamos que hacer el getTask
-        }
+        
 
 
 

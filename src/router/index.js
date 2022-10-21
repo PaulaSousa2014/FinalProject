@@ -19,6 +19,16 @@ const routes = [
          name: 'signin',
          component: () => import('../views/signin.vue')
      },
+     {
+        path: '/newTask',
+        name: 'newTask',
+        component: () => import('../views/NewTask.vue')
+    },
+    {
+        path: '/editTask/:id',
+        name: 'editTask',
+        component: () => import('../views/EditTask.vue')
+    },
 ]
 
 const router = createRouter({

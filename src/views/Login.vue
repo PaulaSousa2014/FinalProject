@@ -21,7 +21,7 @@
                 </div>
                 <div class="field">
                     <div class="control">
-                        <input class="button is-link is-fullwidth" type="submit" placeholder="Text input">
+                        <input class="button is-link" type="submit" placeholder="Text input">
                     </div>
                 </div>
             </form>

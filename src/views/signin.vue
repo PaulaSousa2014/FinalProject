@@ -13,18 +13,24 @@
                 <div class="field">
                     <label class="label">Email</label>
                     <div class="control">
-                        <input v-model="email" class="input" type="email" placeholder="e.g. alex@example.com">
+                        <input v-model="email" class="input" type="email" placeholder="e.g. alex@example.com" required>
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label">Password</label>
+                    <label class="label">Contraseña</label>
                     <div class="control">
-                        <input v-model="password" class="input" type="password" placeholder="*******">
+                        <input v-model="pass1" class="input" type="password"  placeholder="*******" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Confirmar contraseña</label>
+                    <div class="control">
+                        <input v-model="pass2" class="input" type="password"  placeholder="*******" required>
                     </div>
                 </div>
                 <div class="field">
                     <div class="control">
-                        <input class="button is-link is-fullwidth" type="submit" placeholder="Text input">
+                        <input class="button is-link" type="submit" placeholder="Text input">
                     </div>
                 </div>
             </form>
@@ -40,12 +46,25 @@ import { registro} from '../api/index'
 const router = useRouter();
 const name = ref('');
 const email = ref('');
-const password = ref('');
+const pass1 = ref('');
+const pass2 = ref('');
+
 
  const onSubmit = async()=> {
-     await registro(email.value, password.value);
+   if(comprobarClave() == true ){
+    await registro(email.value, pass1.value);
      router.push({ name: 'home'})
+   }
+     
  }
+ const comprobarClave = () =>{
+        if (pass1.value !== pass2.value){
+            alert("Las dos contraseñas no coinciden")
+         return false;
+        } else{
+            return true;
+        }
+}
 
 
 </script>
