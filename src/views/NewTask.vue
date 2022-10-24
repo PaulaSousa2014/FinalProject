@@ -17,10 +17,11 @@
 
 <div class="field is-grouped">
   <div class="control">
-    <button class="button is-link" type="submit">Añadir tarea</button>
+    <button class="button is-link is-success is-light is-outlined" type="submit">Añadir tarea</button>
   </div>
   <div class="control">
-    <button class="button is-link is-danger">Cancelar</button>
+    <!-- TODO No funciona el boton cancelar -->
+    <button @click="editar=false" class="button is-link is-danger is-light is-outlined" type="button">Cancelar</button>
   </div>
 </div>
 </form>
@@ -39,6 +40,7 @@ import { useAuthStore} from '../store/auth'
 import { useRouter } from 'vue-router'
 const title = ref('');
 const description = ref('');
+const editar = ref(false); // he añadido para que funcione el boton cancelar pero sigue sin funcionar
 
 
 const router = useRouter();
@@ -56,4 +58,10 @@ const onSubmit = async()=> {
     router.push({ name: 'home' })
 }
 </script>
-<style scoped></style>
+<style scoped>
+
+/* TODO el background color no afecta el final de la pagina. He puesto aqui para probar pero sigue sin ir */
+body{
+  background-color: #eee;
+}
+</style>

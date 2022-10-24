@@ -18,10 +18,10 @@
 
 <div class="field is-grouped">
   <div class="control">
-    <button class="button is-link" type="submit">Actualizar tarea</button>
+    <button class="button is-link is-success is-light is-outlined" type="submit">Actualizar tarea</button>
   </div>
   <div class="control">
-    <button @click="editar=false" class="button is-link is-danger" type="button">Cancelar</button>
+    <button @click="editar=false" class="button is-link is-danger is-light is-outlined" type="button">Cancelar</button>
   </div>
 </div>
 </form>  
@@ -56,9 +56,10 @@
 </div>
 </form>
   <footer class="card-footer">
-    <button @click="editar=true">Editar Tarea</button>
+    <button @click="editar=true" class="button is-success is-light is-outlined" >Editar Tarea</button>
+    
         <!-- <RouterLink  :to="{name: 'editTask', params:{id: task.id} }" class="card-footer-item">Editar</RouterLink> -->
-    <button @click = "borrarTarea" class="card-footer-item">Eliminar</button>
+    <button  @click = "borrarTarea" class="button is-danger is-light is-outlined">Eliminar</button>
   </footer>
 </div>
 
@@ -105,7 +106,7 @@ const completarTarea = () => {
 
 </script>
 <style scoped>
-
+/* TODO como hacerlo más pequeó? */
 /* The switch - the box around the slider */
 .switch {
   position: relative;
