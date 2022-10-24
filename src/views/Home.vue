@@ -43,7 +43,7 @@ import { useTaskStore} from '../store/task'
 import Task from '../components/Task.vue';
 import { onMounted } from 'vue';
 import { getTasks } from '../api';
-// import Posts from '../components/Posts.vue'
+
 const authStore = useAuthStore();
 
 onMounted( async() => {
