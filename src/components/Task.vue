@@ -21,7 +21,7 @@
     <button class="button is-link" type="submit">Actualizar tarea</button>
   </div>
   <div class="control">
-    <button class="button is-link is-danger" type="button">Cancelar</button>
+    <button @click="editar=false" class="button is-link is-danger" type="button">Cancelar</button>
   </div>
 </div>
 </form>  
@@ -68,10 +68,12 @@ import { ref } from 'vue';
 import {deleteTask, updateTask} from '../api'
 import {useTaskStore} from '../store'
 
+const props = defineProps(["task"])
 const taskStore = useTaskStore()
-const title = ref('');
-const description = ref('');
+const title = ref(props.task.title);
+const description = ref(props.task.description);
 const editar = ref(false);
+
 
 
 const borrarTarea = ()=>{
@@ -98,7 +100,7 @@ const completarTarea = () => {
   taskStore.updateCompleted(props.task.id, {isCompleted: props.task.isCompleted})
 }
 
-const props = defineProps(["task"])
+
 
 
 </script>
