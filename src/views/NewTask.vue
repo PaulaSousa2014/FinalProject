@@ -60,8 +60,18 @@ const onSubmit = async()=> {
 </script>
 <style scoped>
 
-/* TODO el background color no afecta el final de la pagina. He puesto aqui para probar pero sigue sin ir */
+
 body{
   background-color: #eee;
 }
+input {
+background-color: rgb(248, 247, 247);
+}
+textarea {
+  background-color: rgb(248, 247, 247);
+}
+h2 {
+  font-weight: bold;
+}
+
 </style>

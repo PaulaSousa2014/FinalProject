@@ -16,15 +16,16 @@
           Cerrar sesion
         </button> -->
     
-
-        <a class="button is-success is-light is-outlined">
+       <div class="">
+        <a class=" mb-4 button is-success is-light is-outlined ">
           <router-link :to="{ name: 'newTask' }">Nueva Tarea</router-link>
         </a>
-<!-- TODO como doy espacio entre tasks? o altero su style? -->
+    </div>
+
         
 
         <Task class="tasks" v-for="task in taskStore.tasks" :task="task" />
-
+    
       </div>
     </div>
   </div>
@@ -45,11 +46,12 @@ onMounted(async () => {
 const taskStore = useTaskStore();
 </script>
 <style scoped>
-
-/* .tasks{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-} */
+.title{
+    font-family:Arial, Helvetica, sans-serif;
+    color:rgb(78, 77, 77)
+}
+router-link{
+    color: #257953;
+}
 
 </style>

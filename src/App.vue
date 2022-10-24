@@ -20,15 +20,15 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-info is-light is-outlined">
+          <a class="button is-info is-light is-outlined is-responsive">
             <router-link :to="{name: 'signin'}">Registrar</router-link>
           </a>
-          <a class="button is-info is-light is-outlined">
+          <a class="button is-info is-light is-outlined is-responsive">
             <router-link :to="{name: 'login'}">Login</router-link>
           </a>
           <button
           @click="authStore.logout()"
-          class="button is-danger is-light is-outlined"
+          class="button is-danger is-light is-outlined is-responsive"
         >
           Cerrar sesion
         </button>
@@ -45,7 +45,7 @@
 
 import { useAuthStore} from './store'
 const authStore = useAuthStore();
-//TODO falta comprobar que el usuario no esta logeado para no saltar. Mejor cambio para button?
+//TODO falta comprobar que el usuario no esta logeado. Mejor cambio para button?
 
 </script>
 <style scoped>

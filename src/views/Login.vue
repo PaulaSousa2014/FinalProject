@@ -28,7 +28,7 @@
         <div class="field">
           <div class="control">
             <input
-              class="button is-link"
+              class="button is-success is-light is-outlined"
               type="submit"
               placeholder="Text input"
             />
