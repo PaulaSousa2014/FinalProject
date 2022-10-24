@@ -1,6 +1,32 @@
 <template>
+  
+<form v-if="editar" class="box" @submit.prevent="editarTarea">
+ <div class="field">
+  <label class="label">Título</label>
+  <div class="control">
+    <input v-model="title" class="input" type="text" placeholder="Inserte un título">
+  </div>
+</div>
 
-<div class="card">
+<div class="field">
+  <label class="label">Descripción</label>
+  <div class="control">
+    <textarea v-model="description" class="textarea" placeholder="Describa la tarea"></textarea>
+  </div>
+</div>
+
+
+<div class="field is-grouped">
+  <div class="control">
+    <button class="button is-link" type="submit">Actualizar tarea</button>
+  </div>
+  <div class="control">
+    <button class="button is-link is-danger" type="button">Cancelar</button>
+  </div>
+</div>
+</form>  
+
+<div v-else class="card">
   <header class="card-header">
     <p class="card-header-title">
       {{task.title}}
@@ -22,7 +48,7 @@
   <div class="control">
     <h2>Tarea completada</h2> 
     <label class="switch">
-      <input type="checkbox">
+      <input v-model="task.isCompleted" @change="completarTarea" type="checkbox">
       <span class="slider round"> </span>
        </label>
 
@@ -30,17 +56,46 @@
 </div>
 </form>
   <footer class="card-footer">
-        <RouterLink  :to="{name: 'editTask', params:{id: task.id} }" class="card-footer-item">Editar</RouterLink>
+    <button @click="editar=true">Editar Tarea</button>
+        <!-- <RouterLink  :to="{name: 'editTask', params:{id: task.id} }" class="card-footer-item">Editar</RouterLink> -->
     <button @click = "borrarTarea" class="card-footer-item">Eliminar</button>
   </footer>
 </div>
 
 </template>
 <script setup>
-import {deleteTask} from '../api'
+import { ref } from 'vue';
+import {deleteTask, updateTask} from '../api'
+import {useTaskStore} from '../store'
+
+const taskStore = useTaskStore()
+const title = ref('');
+const description = ref('');
+const editar = ref(false);
+
 
 const borrarTarea = ()=>{
 deleteTask(props.task.id)
+taskStore.deleteTask(props.task.id)
+alert('Tarea eliminada con exito')
+}
+
+const editarTarea = () => {
+  updateTask(props.task.id, {
+    title: title.value,
+    description: description.value 
+  })
+  editar.value=false;
+  taskStore.updateTask(props.task.id, {title: title.value,
+    description: description.value 
+  })
+}
+
+const completarTarea = () => {
+  updateTask(props.task.id, {
+    isCompleted: props.task.isCompleted   
+  })
+  taskStore.updateCompleted(props.task.id, {isCompleted: props.task.isCompleted})
 }
 
 const props = defineProps(["task"])

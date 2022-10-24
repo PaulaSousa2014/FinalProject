@@ -20,7 +20,7 @@
     <button class="button is-link" type="submit">Actualizar Tarea</button>
   </div>
   <div class="control">
-    <button class="button is-link is-danger">Cancelar</button>
+    <button class="button is-link is-danger" type="button">Cancelar</button>
   </div>
 </div>
 </form>
@@ -28,25 +28,25 @@
 </template>
 
 <script setup>
-import { updateTask } from '../api';
-import {useRoute} from 'vue-router'
-import { useTaskStore} from '../store/task'
-const title = ref('');
-const description = ref('');
+// import { updateTask } from '../api';
+// import {useRoute} from 'vue-router'
+// import { useTaskStore} from '../store/task'
+// const title = ref('');
+// const description = ref('');
 
-const route = useRoute();
-const id = route.params.id;
+// const route = useRoute();
+// const id = route.params.id;
 
-const taskStore = useTaskStore();
+// const taskStore = useTaskStore();
 
 
-const onSubmit = async()=> {
-    const nuevaTarea = {
-        title: title.value,
-        description: description.value
-    }
-    const task =  await updateTask(id, nuevaTarea)
+// const onSubmit = async()=> {
+//     const nuevaTarea = {
+//         title: title.value,
+//         description: description.value
+//     }
+//     const task =  await updateTask(id, nuevaTarea)
     
-}
+// }
 </script>
 <style scoped></style>

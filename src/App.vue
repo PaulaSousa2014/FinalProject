@@ -36,8 +36,11 @@
     <router-view></router-view>
 </template>
 <script setup>
-import { onMounted } from 'vue';
-import { login, newTask } from './api'
+
+import { useAuthStore} from './store'
+
+const pinia = useAuthStore();
+
 
 
 

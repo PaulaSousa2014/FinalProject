@@ -18,16 +18,30 @@ export const useTaskStore = defineStore('task', {
         },
 
         updateTask(id, task) {
-            // TODO modificar el estado de la task
-            // Encontrar el indice de la task con ese id y cambiar su contenido con task
+            const index = this.tasks.findIndex(task => {
+                if(task.id == id){
+                    return true
+                }
+             })
+             this.tasks[index].title=task.title
+             this.tasks[index].description=task.description
+        },
+        updateCompleted(id, task) {
+            const index = this.tasks.findIndex(task => {
+                if(task.id == id){
+                    return true
+                }
+             })
+             this.tasks[index].isCompleted= task.isCompleted
         },
 
         deleteTask(id) {
-            // TODO modificar el estado borrando esa task
-            // Encontramos el indice de ese id y eliminamos ese indice de la array
-             id = authStore.id;
-             this.tasks = task.id
-            
+             const index = this.tasks.findIndex(task => {
+                if(task.id == id){
+                    return true
+                }
+             })
+            this.tasks.splice(index, 1)
         },
 
         

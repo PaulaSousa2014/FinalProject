@@ -36,11 +36,12 @@ import { newTask } from '../api';
 import { ref } from 'vue';
 import { useTaskStore} from '../store/task'
 import { useAuthStore} from '../store/auth'
+import { useRouter } from 'vue-router'
 const title = ref('');
 const description = ref('');
 
 
-
+const router = useRouter();
 const taskStore = useTaskStore();
 const authStore = useAuthStore();
 const onSubmit = async()=> {
@@ -51,6 +52,8 @@ const onSubmit = async()=> {
     }
     const task =  await newTask(tarea)
     // taskStore.addTask(task)
+    alert('Tarea creada con exito')
+    router.push({ name: 'home' })
 }
 </script>
 <style scoped></style>

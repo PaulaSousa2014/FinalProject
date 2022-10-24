@@ -7,7 +7,7 @@ export const registro = async (email, password) => {
         email,
         password
     })
-    // TODO identificar el result y retornar lo que nos interesa
+   
     console.log(response)
 }
 
@@ -35,8 +35,6 @@ export const login = async (email, password) => {
 export const newTask = async (task) => {
     const response = await supabase.from('task')
         .insert(task)
-    // TODO identificar la  respuesta y retornar lo que necesitemos p.ej true si se ha insertado el registro y false si no
-    // El response no retorna el id de la task que se ha creado tendremos que volver a hace un getTask para obtener los id
     console.log(response);
     if(response.error){
         return false
@@ -75,12 +73,10 @@ export const deleteTask = async (taskId) => {
         .from('task')
         .delete()
         .eq('id', taskId)
-    // TODO identificar el resulado y retornar lo que nos interesa, p.ej true si ha ido bien false si ha fallado
-    console.log(response)
+       console.log(response)
 }
 
 export const logOut = async () => {
     const response = await supabase.auth.signOut()
-    // TODO identificar el resulado y retornar lo que nos interesa, p.ej true si ha ido bien false si ha fallado
     console.log(response)
 }
