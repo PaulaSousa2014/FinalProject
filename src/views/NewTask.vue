@@ -21,7 +21,7 @@
   </div>
   <div class="control">
     <!-- TODO No funciona el boton cancelar -->
-    <button @click="editar=false" class="button is-link is-danger is-light is-outlined" type="button">Cancelar</button>
+    <button @click="cancelarTarea" class="button is-link is-danger is-light is-outlined" type="button">Cancelar</button>
   </div>
 </div>
 </form>
@@ -57,6 +57,12 @@ const onSubmit = async()=> {
     alert('Tarea creada con exito')
     router.push({ name: 'home' })
 }
+const cancelarTarea = () => {
+    title.value = '';
+    description.value = '';
+  router.push({name: 'home'});
+}
+
 </script>
 <style scoped>
 

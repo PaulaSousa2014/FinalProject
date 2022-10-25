@@ -1,5 +1,14 @@
 <template>
+    
   <div class="section">
+    <div>
+    <article v-if="auth.isAuth" class="message">
+        <div class="message-body">
+          ¡Ya has iniciado seccion! <br> <br>
+          <router-link :to="{ name: 'home' }"> Ir a Home </router-link>
+        </div>
+    </article>
+</div>
     <div class="container">
       <form class="box" @submit.prevent="onSubmit">
         <div class="field"></div>
@@ -35,6 +44,9 @@
           </div>
         </div>
       </form>
+      <div>
+        ¿Todavía no tienes una cuenta? <router-link  :to="{ name: 'signin' }"> Registrar </router-link>
+      </div>
     </div>
   </div>
 </template>

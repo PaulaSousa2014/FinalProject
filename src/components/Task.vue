@@ -1,4 +1,5 @@
 <template>
+  <!-- New task -->
   <form v-if="editar" class="box" @submit.prevent="editarTarea">
     <div class="field">
       <label class="label">Título</label>
@@ -43,7 +44,7 @@
       </div>
     </div>
   </form>
-
+<!-- Task -->
   <div v-else class="box">
     <header class="card-header">
       <p class="card-header-title">
@@ -64,6 +65,7 @@
     <form class="field">
       <div class="fieldTask">
         <div class="control">
+          
           <h2>Tarea completada</h2>
 
           <label class="switch">
@@ -148,6 +150,7 @@ const completarTarea = () => {
 }
 h2 {
   font-weight: bold;
+  
 }
 .fieldTask {
   display: flex;
@@ -157,13 +160,20 @@ h2 {
 button{
   margin-right: 10px;
 }
-/* TODO como hacerlo más pequeó? */
+
+.control{
+  display: flex;
+  flex-direction: row-reverse;
+  
+  padding-top: 5%;
+}
+
 /* The switch - the box around the slider */
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 30px;
+  height: 19px;
 }
 
 /* Hide default HTML checkbox */
@@ -189,10 +199,10 @@ button{
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
+  height: 13px;
+  width: 13px;
   left: 4px;
-  bottom: 4px;
+  bottom: 3px;
   background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
@@ -207,9 +217,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform: translateX(10px);
+  -ms-transform: translateX(10px);
+  transform: translateX(10px);
 }
 
 /* Rounded sliders */

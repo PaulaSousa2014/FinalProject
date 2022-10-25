@@ -1,17 +1,14 @@
 <template>
-  <div>
-    <article v-if="auth.isAuth" class="message">
-      <div class="message-body">
-        ¡Ya has iniciado seccion! <br />
-        <br />
-        <router-link :to="{ name: 'home' }"> Ir a Home </router-link>
-      </div>
-    </article>
-  </div>
+
 
   <div class="section">
     <div class="container">
       <form class="box" @submit.prevent="onSubmit">
+        <div class="field">
+            <label class="label">Seleccionar foto de perfil: </label>
+    <input type="file" @change="onFile" />
+    <img :src="imgSrc" v-if="imgSrc" />
+        </div>
         <div class="field">
           <label class="label">Name</label>
           <div class="control">
@@ -23,6 +20,7 @@
             />
           </div>
         </div>
+       
         <div class="field">
           <label class="label">Email</label>
           <div class="control">
@@ -35,8 +33,21 @@
             />
           </div>
         </div>
+        <!-- <label class="label">Cambiar contraseña</label> -->
         <div class="field">
-          <label class="label">Contraseña</label>
+          <label class="label">Contraseña actual</label>
+          <div class="control">
+            <input
+              v-model="pass1"
+              class="input"
+              type="password"
+              placeholder="********"
+              required
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Nueva contraseña</label>
           <div class="control">
             <input
               v-model="pass1"
@@ -48,7 +59,7 @@
           </div>
         </div>
         <div class="field">
-          <label class="label">Confirmar contraseña</label>
+          <label class="label">Confirmar Nueva contraseña</label>
           <div class="control">
             <input
               v-model="pass2"
@@ -71,34 +82,31 @@
       </form>
     </div>
   </div>
-</template>
-<script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
-import { registro } from "../api/index";
-import { useAuthStore } from "../store";
-
-const auth = useAuthStore();
-
-const router = useRouter();
-const name = ref("");
-const email = ref("");
-const pass1 = ref("");
-const pass2 = ref("");
-
-const onSubmit = async () => {
-  if (comprobarClave() == true) {
-    await registro(email.value, pass1.value);
-    router.push({ name: "home" });
+  </template>
+  <script>
+  export default {
+    data() {
+      return {
+        imgSrc: ''
+      }
+    },
+    methods: {
+      onFile(e) {
+        const files = e.target.files
+        if (!files.length) return
+  
+        const reader = new FileReader()
+        reader.readAsDataURL(files[0])
+        reader.onload = () => (this.imgSrc = reader.result)
+      }
+    }
   }
-};
-const comprobarClave = () => {
-  if (pass1.value !== pass2.value) {
-    alert("Las dos contraseñas no coinciden");
-    return false;
-  } else {
-    return true;
-  }
-};
-</script>
-<style scoped></style>
+  
+  </script>
+  <style>
+img{
+    border-radius: 40%;
+    height: 100px;
+    
+}
+</style>

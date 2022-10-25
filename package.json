@@ -13,6 +13,8 @@
     "pinia": "^2.0.23",
     "pinia-plugin-persist": "^1.0.0",
     "vue": "^3.2.37",
+    "vue-calendar-3": "^1.3.93",
+    "vue-picture-input": "^2.4.0",
     "vue-router": "^4.1.5"
   },
   "devDependencies": {

@@ -24,7 +24,16 @@ const routes = [
         name: 'newTask',
         component: () => import('../views/NewTask.vue')
     },
-  
+    {
+        path: '/calendario',
+        name: 'calendario',
+        component: () => import('../views/Calendario.vue')
+    },
+    {
+        path: '/perfil',
+        name: 'perfil',
+        component: () => import('../views/Perfil.vue')
+    },
 ]
 
 const router = createRouter({

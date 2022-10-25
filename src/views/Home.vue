@@ -1,9 +1,9 @@
 <template>
   <div class="section">
     <div class="container">
-      <article v-if="!authStore.isAuth" class="message">
+      <article v-if="!authStore.isAuth" class="message is-danger">
         <div class="message-body">
-          Debes iniciar sesion para utilizar la aplicacion
+          ¡No has iniciado seccion! <br> <br>
           <router-link :to="{ name: 'login' }"> Ir a Login </router-link>
         </div>
       </article>
@@ -16,9 +16,9 @@
           Cerrar sesion
         </button> -->
     
-       <div class="">
-        <a class=" mb-4 button is-success is-light is-outlined ">
-          <router-link :to="{ name: 'newTask' }">Nueva Tarea</router-link>
+       <div>
+        <a class="mb-4 button is-success is-light is-outlined">
+          <router-link class="letra" :to="{ name: 'newTask' }">Nueva Tarea</router-link>
         </a>
     </div>
 
@@ -50,7 +50,7 @@ const taskStore = useTaskStore();
     font-family:Arial, Helvetica, sans-serif;
     color:rgb(78, 77, 77)
 }
-router-link{
+.letra{
     color: #257953;
 }
 
