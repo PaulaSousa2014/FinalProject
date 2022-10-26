@@ -1,4 +1,5 @@
 <template>
+    <!-- Has olvidado tu password? -->
     <div class="login">
   <div class="section">
     <div>

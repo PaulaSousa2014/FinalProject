@@ -9,6 +9,11 @@
   </div> -->
 
   <div class="section">
+    <div class="box alerta"> En construcción...
+<progress class="progress is-dark" max="100">30%</progress>
+
+</div>
+
     <div class="container">
       <form class="box" @submit.prevent="onSubmit">
         <div class="field">
@@ -28,7 +33,7 @@
           </div>
         </div>
        
-        <div class="field">
+        <!-- <div class="field">
           <label class="label">Email</label>
           <div class="control">
             <input
@@ -39,7 +44,7 @@
               required
             />
           </div>
-        </div>
+        </div> -->
         <!-- <label class="label">Cambiar contraseña</label> -->
         <div class="field">
           <label class="label">Contraseña actual</label>
@@ -91,16 +96,9 @@
   </div>
   </template>
   <script>
-//   import {ref} from 'vue';
-// //   import { useAuthStore } from "../store";
-//   import { useRouter } from "vue-router";
-//   import { login } from "../api/index";
 
-//   const router = useRouter();
-//   const auth = useAuthStore();
-//   const name = ref("");
 
-  
+  //TODO pasar para composite
 
   export default {
     data() {
@@ -126,5 +124,12 @@ img{
     border-radius: 40%;
     height: 100px;
     
+}
+.alerta{
+    margin-top: 50px;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: rgb(190, 137, 137);
+    font-weight: bold;
 }
 </style>

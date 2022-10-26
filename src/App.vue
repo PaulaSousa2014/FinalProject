@@ -40,7 +40,7 @@
           <a class="navbar-item">
             <router-link class="links" :to="{ name: 'perfil' }">Editar Perfil</router-link>
           </a>
-          <a class="navbar-item">
+          <a  class="navbar-item">
             <router-link class="links" :to="{ name: 'login' }">Iniciar Sesión</router-link>
           </a>
           <a  @click="authStore.logout()" class="navbar-item links"> Cerrar sesion </a>
@@ -53,17 +53,17 @@
         <!-- navbar-start, navbar-end... -->
 
         <div class="navbar-start">
-          <a class="navbar-item">
+          <a @click="isActive=!isActive" class="navbar-item">
             <router-link class="links" :to="{ name: 'home' }">Home</router-link>
           </a>
-          <a class="navbar-item">
+          <a @click="isActive=!isActive" class="navbar-item">
             <router-link class="links" :to="{ name: 'calendario' }">Calendario</router-link>
           </a>
-          <a class="navbar-item">
+          <a @click="isActive=!isActive" class="navbar-item">
             <router-link class="links" :to="{ name: 'perfil' }">Editar Perfil</router-link>
           </a>
-          <a class="navbar-item">
-            <router-link class="links" :to="{ name: 'login' }">Iniciar Sesión</router-link>
+          <a @click="isActive=!isActive" class="navbar-item">
+            <router-link  class="links" :to="{ name: 'login' }">Iniciar Sesión</router-link>
           </a>
           <a @click="authStore.logout()" class="navbar-item links"> Cerrar sesion </a>
         </div>

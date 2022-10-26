@@ -1,11 +1,9 @@
 <template>
   <div class="section">
     <div class="container">
-      <article v-if="!authStore.isAuth">
-
-
+      <div class="loginLink" v-if="!authStore.isAuth">
         <Login />
-      </article>
+      </div>
       <div v-else>
         <div class="title">Tareas</div>
         <!-- <button
@@ -14,17 +12,18 @@
         >
           Cerrar sesion
         </button> -->
-    
-       <div>
-        <a class="mb-4 button is-success is-light is-outlined">
-          <router-link class="letra" :to="{ name: 'newTask' }">Nueva Tarea</router-link>
-        </a>
-    </div>
 
-        
+        <div>
+          <a class="mb-4 button is-success is-light is-outlined">
+            <router-link class="letra" :to="{ name: 'newTask' }"
+              >Nueva Tarea</router-link
+            >
+          </a>
+        </div>
 
-        <Task class="tasks" v-for="task in taskStore.tasks" :task="task" />
-    
+        <div class="taskBox">
+          <Task class="tasks" v-for="task in taskStore.tasks" :task="task" />
+        </div>
       </div>
     </div>
   </div>
@@ -47,17 +46,19 @@ onMounted(async () => {
 const taskStore = useTaskStore();
 </script>
 <style scoped>
-.title{
-    font-family:Arial, Helvetica, sans-serif;
-    color:rgb(78, 77, 77)
+.title {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(78, 77, 77);
 }
-.letra{
-    color: #257953;
-}
-@media (min-width: 1000px){
-  .tasks{
-    display: flex;
-  }
+.letra {
+  color: #257953;
 }
 
+
+@media (min-width: 840px) {
+  .taskBox {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
 </style>

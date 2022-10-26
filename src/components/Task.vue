@@ -232,9 +232,13 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-@media (min-width: 1000px){
+
+
+
+
+@media (min-width: 840px){
   .cardShow{
-    width: 30%;
-  }
+  margin-left: 30px;
+}
 }
 </style>

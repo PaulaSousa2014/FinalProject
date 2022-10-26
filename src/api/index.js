@@ -25,9 +25,7 @@ const { user, error } = await supabase.auth.update({
     password,
     data: { hello: 'world' }
   })
-
 }
-
 
 export const login = async (email, password) => {
     const response = await supabase.auth.signInWithPassword({
