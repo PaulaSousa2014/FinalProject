@@ -39,6 +39,11 @@ const routes = [
         name: 'password',
         component: () => import('../views/RecuperarPasswor.vue')
     },
+    {
+        path: '/cambiarPass',
+        name: 'changePass',
+        component: () => import('../views/RecPass.vue')
+    },
 ]
 
 const router = createRouter({

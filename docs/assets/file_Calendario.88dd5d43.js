@@ -1,1 +1,0 @@
-import{_ as e,o as s,c as a,n as o,a as c}from"./file_index.f9643ec2.js";const t={},r={class:"box alerta"},n=c("progress",{class:"progress is-dark",max:"100"},"30%",-1);function _(d,i){return s(),a("div",r,[o(" En construcci\xF3n... "),n])}const p=e(t,[["render",_]]);export{p as default};

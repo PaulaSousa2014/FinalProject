@@ -50,7 +50,6 @@ const auth = useAuthStore();
 const onSubmit = async () => {
   const response = await recEmail(email.value);
   if (response) {
-    
     alert("Email no registrado");
   }
 };
