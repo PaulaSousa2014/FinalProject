@@ -1,19 +1,18 @@
 <template>
-    
+    <div class="login">
   <div class="section">
     <div>
-    <article v-if="auth.isAuth" class="message">
+      <article v-if="auth.isAuth" class="message">
         <div class="message-body">
-          
-          <router-link :to="{ name: 'home' }"> Ir a Home </router-link>
+          <router-link :to="{ name: 'perfil' }"> Cambiar contraseña </router-link>
         </div>
-    </article>
-</div>
+      </article>
+    </div>
     <div class="container">
       <form class="box" @submit.prevent="onSubmit">
         <div class="field"></div>
         <div class="field">
-          <label class="label">Email</label>
+          <label class="label">Introduzca tu Email</label>
           <div class="control">
             <input
               v-model="email"
@@ -22,39 +21,25 @@
               placeholder="e.g. alex@example.com"
             />
           </div>
-        </div>
-        <div class="field">
-          <label class="label">Password</label>
-          <div class="control">
-            <input
-              v-model="password"
-              class="input"
-              type="password"
-              placeholder="*******"
-            />
-          </div>
-        </div>
-        <div class="field">
-          <div class="control">
-            <input
+          <input
               class="button is-success is-light is-outlined"
               type="submit"
               placeholder="Text input"
             />
-          </div>
         </div>
+        
       </form>
-      <div>
-        ¿Todavía no tienes una cuenta? <router-link  :to="{ name: 'signin' }"> Registrar </router-link>
-      </div>
+    
     </div>
   </div>
+</div>
 </template>
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { login } from "../api/index";
 import { useAuthStore } from "../store";
+import { recEmail} from "../api"
 
 const router = useRouter();
 const name = ref("");
@@ -62,19 +47,24 @@ const email = ref("");
 const password = ref("");
 const auth = useAuthStore();
 
-
-
 const onSubmit = async () => {
-  const response = await login(email.value, password.value);
+  const response = await recEmail(email.value);
   if (response) {
-    //store
-    auth.login(response);
-
-    // Nos redirige al home
-    router.push({ name: "home" });
-  } else {
-    alert("Credenciales equivocadas.");
+    
+    alert("Email no registrado");
   }
 };
 </script>
-<style scoped></style> 
+<style scoped>
+@media (min-width: 1000px) {
+  .login {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+.button{
+    margin-top: 10px;
+}
+</style>

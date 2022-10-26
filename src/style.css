@@ -1,9 +1,16 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 
 :root{
-    background-color:#eee
+    /* background-color:#eee; */
+    background-image: url('./assets/vectorstock_32058494.png');
+    
+    
 }
-.navbar{
+.navbar-brand{
     background-color: #eee;
+    width: 100%;   
+    
+    
 }
+
 

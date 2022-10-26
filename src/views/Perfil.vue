@@ -1,5 +1,12 @@
 <template>
-
+<div>
+      <article v-if="auth.isAuth" class="message">
+          <div class="message-body">
+            
+            <router-link :to="{ name: 'home' }"> Ir a Home </router-link>
+          </div>
+      </article>
+  </div>
 
   <div class="section">
     <div class="container">
@@ -84,6 +91,16 @@
   </div>
   </template>
   <script>
+  import { useAuthStore } from "../store";
+  import { useRouter } from "vue-router";
+  import { login } from "../api/index";
+
+  const router = useRouter();
+  const auth = useAuthStore();
+  const name = ref("");
+
+  
+
   export default {
     data() {
       return {

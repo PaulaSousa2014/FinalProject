@@ -1,11 +1,10 @@
 <template>
   <div class="section">
     <div class="container">
-      <article v-if="!authStore.isAuth" class="message is-danger">
-        <div class="message-body">
-          ¡No has iniciado seccion! <br> <br>
-          <router-link :to="{ name: 'login' }"> Ir a Login </router-link>
-        </div>
+      <article v-if="!authStore.isAuth">
+
+
+        <Login />
       </article>
       <div v-else>
         <div class="title">Tareas</div>
@@ -37,6 +36,8 @@ import Task from "../components/Task.vue";
 import { onMounted } from "vue";
 import { getTasks } from "../api";
 
+import Login from "../components/Login.vue";
+
 const authStore = useAuthStore();
 
 onMounted(async () => {
@@ -52,6 +53,11 @@ const taskStore = useTaskStore();
 }
 .letra{
     color: #257953;
+}
+@media (min-width: 1000px){
+  .tasks{
+    display: flex;
+  }
 }
 
 </style>

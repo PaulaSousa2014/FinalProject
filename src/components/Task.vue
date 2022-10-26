@@ -30,7 +30,7 @@
           class="button is-link is-success is-light is-outlined"
           type="submit"
         >
-          Actualizar tarea
+          Actualizar
         </button>
       </div>
       <div class="control">
@@ -45,7 +45,7 @@
     </div>
   </form>
 <!-- Task -->
-  <div v-else class="box">
+  <div v-else class="box cardShow">
     <header class="card-header">
       <p class="card-header-title">
         {{ task.title }}
@@ -66,7 +66,7 @@
       <div class="fieldTask">
         <div class="control">
           
-          <h2>Tarea completada</h2>
+          <h2>Completada</h2>
 
           <label class="switch">
             <input
@@ -84,7 +84,7 @@
         @click="editar = true"
         class="button is-success is-light is-outlined"
       >
-        Editar Tarea
+        Editar
       </button>
 
     
@@ -141,6 +141,7 @@ const completarTarea = () => {
   flex-direction: column;
   justify-content: space-between;
 }
+
 
 .card-header {
   background-color: rgb(248, 247, 247);
@@ -229,5 +230,11 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+@media (min-width: 1000px){
+  .cardShow{
+    width: 30%;
+  }
 }
 </style>

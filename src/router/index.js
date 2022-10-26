@@ -34,6 +34,11 @@ const routes = [
         name: 'perfil',
         component: () => import('../views/Perfil.vue')
     },
+    {
+        path: '/recuperar',
+        name: 'password',
+        component: () => import('../views/RecuperarPasswor.vue')
+    },
 ]
 
 const router = createRouter({

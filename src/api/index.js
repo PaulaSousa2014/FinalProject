@@ -11,6 +11,24 @@ export const registro = async (email, password) => {
     console.log(response)
 }
 
+export const recEmail = async (email) => {
+   
+    let { data, error } = await supabase.auth.resetPasswordForEmail(email)
+    console.log(error)
+    return error
+    
+
+}
+export const updateUser = async (email, password) => {
+const { user, error } = await supabase.auth.update({
+    email,
+    password,
+    data: { hello: 'world' }
+  })
+
+}
+
+
 export const login = async (email, password) => {
     const response = await supabase.auth.signInWithPassword({
         email,
