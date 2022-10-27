@@ -24,7 +24,7 @@
           </div>
         </div>
         <div class="field">
-          <label class="label">Email</label>
+          <label class="label">Email*</label>
           <div class="control">
             <input
               v-model="email"
@@ -36,29 +36,34 @@
           </div>
         </div>
         <div class="field">
-          <label class="label">Contraseña</label>
-          <div class="control">
+          <label class="label">Contraseña*</label>
+          <div class="control has-icons-right">
             <input
               v-model="pass1"
               class="input"
-              type="password"
+              :type="visibility ? 'text': 'password'"
               placeholder="*******"
               required
             />
+            <span @click="visibility=!visibility" class="icon is-small is-right is-clickable"><i class="fa-solid fa-eye"></i></span>
           </div>
         </div>
         <div class="field">
           <label class="label">Confirmar contraseña</label>
-          <div class="control">
+          <div class="control has-icons-right">
             <input
               v-model="pass2"
               class="input"
-              type="password"
+              :type="visibility ? 'text': 'password'" 
               placeholder="*******"
               required
             />
+            <span @click="visibility=!visibility" class="icon is-small is-right is-clickable"><i class="fa-solid fa-eye"></i></span>
           </div>
         </div>
+        <!--  Arriba es una condicion ternaria para cambiar el contenido del type segun valor bolleano -->
+              <!-- <button type="button"  @click="visibility=!visibility">show</button> -->
+        
         <div class="field">
           <div class="control">
             <input
@@ -85,6 +90,7 @@ const name = ref("");
 const email = ref("");
 const pass1 = ref("");
 const pass2 = ref("");
+const visibility = ref(false);
 
 const onSubmit = async () => {
   if (comprobarClave() == true) {

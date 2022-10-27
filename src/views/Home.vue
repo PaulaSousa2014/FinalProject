@@ -21,8 +21,10 @@
           </a>
         </div>
 
-        <div class="taskBox">
-          <Task class="tasks" v-for="task in taskStore.tasks" :task="task" />
+        <div class="columns is-multiline">
+          <div class="column is-12-mobile is-4-tablet is-3-desktop" v-for="task in taskStore.tasks" >
+          <Task class="tasks" :task="task" />
+        </div>
         </div>
       </div>
     </div>
@@ -56,9 +58,6 @@ const taskStore = useTaskStore();
 
 
 @media (min-width: 840px) {
-  .taskBox {
-    display: flex;
-    flex-wrap: wrap;
-  }
+ 
 }
 </style>

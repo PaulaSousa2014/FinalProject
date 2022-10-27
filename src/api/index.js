@@ -9,6 +9,13 @@ export const registro = async (email, password) => {
     })
    
     console.log(response)
+    
+}
+
+export const selectName = async () =>{
+    let { data: Profile, error } = await supabase
+  .from('Profile')
+  .select('Name')
 }
 
 export const recEmail = async (email) => {
@@ -20,11 +27,12 @@ export const recEmail = async (email) => {
 
 }
 export const updateUser = async (email, password) => {
-const { user, error } = await supabase.auth.update({
+const { user, error } = await supabase.auth.updateUser({
     email,
     password,
     data: { hello: 'world' }
   })
+  console.log(error)
 }
 
 export const login = async (email, password) => {

@@ -1,0 +1,1 @@
+import{_ as e,o as s,c as a,l as o,a as c}from"./file_index.feef2595.js";const t={},r={class:"box alerta"},n=c("progress",{class:"progress is-dark",max:"100"},"1%",-1);function _(d,l){return s(),a("div",r,[o(" En construcci\xF3n... "),n])}const p=e(t,[["render",_]]);export{p as default};

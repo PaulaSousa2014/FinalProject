@@ -111,9 +111,11 @@ const isActive = ref(true);
   
 }
 .checked {
-  color: rgb(91, 90, 90);
+  color: #00ef81;
+  font-size: 1.3rem;
+  -webkit-text-stroke: 1px black;
   font-family: monospace;
-  padding-top: 7px;
+  padding-top: 6px;
   font-weight: bold;
   
 }

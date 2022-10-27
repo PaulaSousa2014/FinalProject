@@ -9,7 +9,7 @@
   </div> -->
 
   <div class="section">
-    <div class="box alerta"> En construcción...
+    <div class="box alerta"> En construcción. Introducir foto de perfil no disponible.
 <progress class="progress is-dark" max="100">30%</progress>
 
 </div>
@@ -22,7 +22,7 @@
     <img :src="imgSrc" v-if="imgSrc" />
         </div>
         <div class="field">
-          <label class="label">Name</label>
+          <label class="label">Nombre</label>
           <div class="control">
             <input
               v-model="name"
@@ -32,6 +32,7 @@
             />
           </div>
         </div>
+        <br>
        
         <!-- <div class="field">
           <label class="label">Email</label>
@@ -46,42 +47,56 @@
           </div>
         </div> -->
         <!-- <label class="label">Cambiar contraseña</label> -->
-        <div class="field">
-          <label class="label">Contraseña actual</label>
-          <div class="control">
-            <input
-              v-model="pass1"
-              class="input"
-              type="password"
-              placeholder="********"
-              required
-            />
+         <!-- Cambiar contraseña -->
+    
+    
+     
+        
+              
+        <label class="label">Cambiar contraseña</label> 
+        <br>
+
+        <div class="field"></div>
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control">
+              <input
+                v-model="email"
+                class="input"
+                type="email"
+                placeholder="e.g. alex@example.com"
+              />
+            </div>
           </div>
-        </div>
+       
         <div class="field">
           <label class="label">Nueva contraseña</label>
-          <div class="control">
+          <div class="control has-icons-right">
             <input
               v-model="pass1"
               class="input"
-              type="password"
+              :type="visibility ? 'text': 'password'"
               placeholder="*******"
               required
             />
+            <span @click="visibility=!visibility" class="icon is-small is-right is-clickable"><i class="fa-solid fa-eye"></i></span>
           </div>
         </div>
         <div class="field">
           <label class="label">Confirmar Nueva contraseña</label>
-          <div class="control">
+          <div class="control has-icons-right">
             <input
               v-model="pass2"
               class="input"
-              type="password"
+              :type="visibility ? 'text': 'password'"
               placeholder="*******"
               required
             />
+            <span @click="visibility=!visibility" class="icon is-small is-right is-clickable"><i class="fa-solid fa-eye"></i></span>
           </div>
         </div>
+
+
         <div class="field">
           <div class="control">
             <input
@@ -92,31 +107,65 @@
           </div>
         </div>
       </form>
+    
+  
+     
     </div>
   </div>
   </template>
-  <script>
+  <script setup>
 
 
   //TODO pasar para composite
 
-  export default {
-    data() {
-      return {
-        imgSrc: ''
-      }
-    },
-    methods: {
-      onFile(e) {
-        const files = e.target.files
-        if (!files.length) return
+  // export default {
+  //   data() {
+  //     return {
+  //       imgSrc: ''
+  //     }
+  //   },
+  //   methods: {
+  //     onFile(e) {
+  //       const files = e.target.files
+  //       if (!files.length) return
   
-        const reader = new FileReader()
-        reader.readAsDataURL(files[0])
-        reader.onload = () => (this.imgSrc = reader.result)
-      }
-    }
+  //       const reader = new FileReader()
+  //       reader.readAsDataURL(files[0])
+  //       reader.onload = () => (this.imgSrc = reader.result)
+  //     }
+  //   }
+  // }
+
+  import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { registro } from "../api/index";
+import { useAuthStore } from "../store";
+import { updateUser } from "../api/index";
+
+const auth = useAuthStore();
+
+const router = useRouter();
+const name = ref("");
+const email = ref("");
+const pass1 = ref("");
+const pass2 = ref("");
+const visibility = ref(false);
+
+
+const onSubmit = async () => {
+  if (comprobarClave() == true) {
+    await updateUser(email.value, pass1.value);
+    router.push({ name: "home" });
   }
+};
+const comprobarClave = () => {
+  if (pass1.value !== pass2.value) {
+    alert("Las dos contraseñas no coinciden");
+    return false;
+  } else {
+    return true;
+  }
+};
   
   </script>
   <style>

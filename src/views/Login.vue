@@ -24,15 +24,21 @@
           </div>
           <div class="field">
             <label class="label">Password</label>
-            <div class="control">
+            <div class="control has-icons-right">
               <input
                 v-model="password"
                 class="input"
-                type="password"
+                :type="visibility ? 'text': 'password'" 
                 placeholder="*******"
               />
+              <span @click="visibility=!visibility" class="icon is-small is-right is-clickable"><i class="fa-solid fa-eye"></i></span>
+
+              
+              <!-- Arriba es una condicion ternaria para cambiar el contenido del type segun valor bolleano -->
+              <!-- <button type="button"  @click="visibility=!visibility">show</button> -->
             </div>
           </div>
+
           <div class="field">
             <div class="control">
               <input
@@ -68,6 +74,8 @@ const name = ref("");
 const email = ref("");
 const password = ref("");
 const auth = useAuthStore();
+const visibility = ref(false);
+
 
 const onSubmit = async () => {
   const response = await login(email.value, password.value);
@@ -81,6 +89,8 @@ const onSubmit = async () => {
     alert("Credenciales equivocadas.");
   }
 };
+
+
 </script>
 <style scoped>
 .container {

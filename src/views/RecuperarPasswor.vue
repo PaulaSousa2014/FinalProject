@@ -3,14 +3,16 @@
     <div class="login">
   <div class="section">
     <div>
-      <article v-if="auth.isAuth" class="message">
+      <article v-if="auth && auth.isAuth" class="message">
         <div class="message-body">
           <router-link :to="{ name: 'perfil' }"> Cambiar contraseña </router-link>
         </div>
       </article>
     </div>
     <div class="container">
+
       <form class="box" @submit.prevent="onSubmit">
+        
         <div class="field"></div>
         <div class="field">
           <label class="label">Introduzca tu Email</label>
@@ -38,9 +40,10 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { login } from "../api/index";
+import { login, updateUser } from "../api/index";
 import { useAuthStore } from "../store";
 import { recEmail} from "../api"
+
 
 const router = useRouter();
 const name = ref("");
@@ -49,10 +52,14 @@ const password = ref("");
 const auth = useAuthStore();
 
 const onSubmit = async () => {
+  console.log('Prueba onSubmit')
   const response = await recEmail(email.value);
   if (response) {
     alert("Email no registrado");
+  } else{
+    alert('Hemos enviado un link de recuperación a tu correo electónico')
   }
+  router.push({ name: 'signin' })
 };
 </script>
 <style scoped>
