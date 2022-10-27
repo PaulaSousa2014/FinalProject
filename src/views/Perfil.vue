@@ -1,25 +1,30 @@
 <template>
-<!-- <div> -->
-      <!-- <article v-if="auth.isAuth" class="message">
-          <div class="message-body">
-            
-            <router-link :to="{ name: 'home' }"> Ir a Home </router-link>
-          </div>
-      </article>
-  </div> -->
+  <div>
+<br>
+    <div class="loginLink" v-if="!auth.isAuth">
+      
+         
+      <Login />
 
-  <div class="section">
-    <div class="box alerta"> En construcción. Introducir foto de perfil no disponible.
-<progress class="progress is-dark" max="100">30%</progress>
+    </div>
+  
 
-</div>
+  <div  v-else class="section">
+    
 
     <div class="container">
       <form class="box" @submit.prevent="onSubmit">
         <div class="field">
-            <label class="label">Seleccionar foto de perfil: </label>
+            <label class="label">Seleccionar foto de perfil:  </label>
+            <img src="../assets/images.png" />
+            <div class="icon-text">
+  <span class="icon has-text-warning">
+    <i class="fas fa-exclamation-triangle"></i>
+  </span>
+  <span>En construcción</span>
+</div>
     <input type="file" @change="onFile" />
-    <img :src="imgSrc" v-if="imgSrc" />
+    
         </div>
         <div class="field">
           <label class="label">Nombre</label>
@@ -33,44 +38,27 @@
           </div>
         </div>
         <br>
-       
-        <!-- <div class="field">
-          <label class="label">Email</label>
-          <div class="control">
-            <input
-              v-model="email"
-              class="input"
-              type="email"
-              placeholder="e.g. alex@example.com"
-              required
-            />
-          </div>
-        </div> -->
-        <!-- <label class="label">Cambiar contraseña</label> -->
-         <!-- Cambiar contraseña -->
-    
-    
-     
-        
               
-        <label class="label">Cambiar contraseña</label> 
+              
+        <label class="label pass">Cambiar contraseña</label> 
         <br>
 
         <div class="field"></div>
           <div class="field">
-            <label class="label">Email</label>
+            <label class="label">Email*</label>
             <div class="control">
               <input
                 v-model="email"
                 class="input"
                 type="email"
                 placeholder="e.g. alex@example.com"
+                required
               />
             </div>
           </div>
        
         <div class="field">
-          <label class="label">Nueva contraseña</label>
+          <label class="label">Nueva contraseña*</label>
           <div class="control has-icons-right">
             <input
               v-model="pass1"
@@ -83,7 +71,7 @@
           </div>
         </div>
         <div class="field">
-          <label class="label">Confirmar Nueva contraseña</label>
+          <label class="label">Confirmar Nueva contraseña*</label>
           <div class="control has-icons-right">
             <input
               v-model="pass2"
@@ -97,13 +85,18 @@
         </div>
 
 
-        <div class="field">
-          <div class="control">
+        <div class="field campo">
+          <div class="control has-icons-left">
+           
             <input
-              class="button is-success is-light is-outlined"
+              class="button is-success is-light is-outlined "
               type="submit"
-              placeholder="Text input"
+              placeholder="icon input"
+              
             />
+            
+          
+            
           </div>
         </div>
       </form>
@@ -112,6 +105,7 @@
      
     </div>
   </div>
+</div>
   </template>
   <script setup>
 
@@ -141,6 +135,7 @@ import { useRouter } from "vue-router";
 import { registro } from "../api/index";
 import { useAuthStore } from "../store";
 import { updateUser } from "../api/index";
+import Login from "../components/Login.vue";
 
 const auth = useAuthStore();
 
@@ -168,7 +163,7 @@ const comprobarClave = () => {
 };
   
   </script>
-  <style>
+  <style scoped>
 img{
     border-radius: 40%;
     height: 100px;
@@ -181,4 +176,18 @@ img{
     background-color: rgb(190, 137, 137);
     font-weight: bold;
 }
+
+@media( min-width: 950px){
+  .container{
+  width: 40vw;
+}
+.field{
+  width: 30vw;
+  margin-left: 7%;  
+}
+.pass{
+  margin-left: 7%;
+}
+}
+
 </style>

@@ -4,27 +4,24 @@
       <div class="loginLink" v-if="!authStore.isAuth">
         <Login />
       </div>
-      <div v-else>
+      <div v-else class="tareas">
         <div class="title">Tareas</div>
-        <!-- <button
-          @click="authStore.logout()"
-          class="button is-danger is-light is-outlined"
-        >
-          Cerrar sesion
-        </button> -->
+        
 
-        <div>
-          <a class="mb-4 button is-success is-light is-outlined">
-            <router-link class="letra" :to="{ name: 'newTask' }"
-              >Nueva Tarea</router-link
-            >
-          </a>
-        </div>
+        <a class="mb-4 button is-success is-light is-outlined is-responsive">
+          <router-link class="letra" :to="{ name: 'newTask' }"
+            > <i class="fa-solid fa-circle-plus"></i> Añadir Tarea</router-link
+          >
+        </a>
+        <br>
 
         <div class="columns is-multiline">
-          <div class="column is-12-mobile is-4-tablet is-3-desktop" v-for="task in taskStore.tasks" >
-          <Task class="tasks" :task="task" />
-        </div>
+          <div
+            class="column is-12-mobile is-4-tablet is-3-desktop"
+            v-for="task in taskStore.tasks"
+          >
+            <Task class="tasks" :task="task" />
+          </div>
         </div>
       </div>
     </div>
@@ -49,15 +46,24 @@ const taskStore = useTaskStore();
 </script>
 <style scoped>
 .title {
-  font-family: Arial, Helvetica, sans-serif;
-  color: rgb(78, 77, 77);
+  
+  color: #215c3fe4;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px rgb(169, 162, 162);
+  font-family: monospace;
+  padding-top: 4px;
+  font-weight: bold;
 }
 .letra {
   color: #257953;
 }
+.tareas {
+  display: flex;
+  flex-direction: column;
+  
+}
 
 
 @media (min-width: 840px) {
- 
 }
 </style>

@@ -1,4 +1,6 @@
 <template>
+  
+  
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <div class="logo">
@@ -32,7 +34,7 @@
 
         <div class="navbar-start1">
           <a class="navbar-item">
-            <router-link class="links" :to="{ name: 'home' }">Home</router-link>
+            <router-link class=" home" :to="{ name: 'home' }">Home</router-link>
           </a>
           <a class="navbar-item">
             <router-link class="links" :to="{ name: 'calendario' }">Calendario</router-link>
@@ -54,7 +56,7 @@
 
         <div class="navbar-start">
           <a @click="isActive=!isActive" class="navbar-item">
-            <router-link class="links" :to="{ name: 'home' }">Home</router-link>
+            <router-link class=" home" :to="{ name: 'home' }">Home</router-link>
           </a>
           <a @click="isActive=!isActive" class="navbar-item">
             <router-link class="links" :to="{ name: 'calendario' }">Calendario</router-link>
@@ -80,23 +82,37 @@
            <a class="button is-info is-light is-outlined is-responsive">
             <router-link :to="{name: 'login'}">Login</router-link>
           </a> 
-          
+        
         </div>
       </div>
     </div> -->
   </nav>
+  
+  
 
   <router-view></router-view>
+
+  <Footer />
 </template>
 <script setup>
 import { useAuthStore } from "./store";
 import { ref } from "vue";
+import Footer from "./components/Footer.vue"
+
 const authStore = useAuthStore();
 
 const isActive = ref(true);
 
 </script>
 <style scoped>
+.home{
+  color: #215c3fe4;
+  font-weight: bold;  
+  font-size: 1.1rem;
+  text-shadow: 0.5px 0.5px rgb(169, 162, 162);
+  font-family: monospace;
+  
+}
 .navbar-start {
   display: flex;
   flex-direction: column;
@@ -111,11 +127,11 @@ const isActive = ref(true);
   
 }
 .checked {
-  color: #00ef81;
+  color: #215c3fe4;
   font-size: 1.3rem;
-  -webkit-text-stroke: 1px black;
+  text-shadow: 1px 1px rgb(169, 162, 162);
   font-family: monospace;
-  padding-top: 6px;
+  padding-top: 4px;
   font-weight: bold;
   
 }
@@ -145,5 +161,6 @@ img{
 .logo{
   display: flex;
 }
+
 
 </style>

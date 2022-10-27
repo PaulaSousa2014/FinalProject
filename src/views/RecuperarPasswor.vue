@@ -52,7 +52,6 @@ const password = ref("");
 const auth = useAuthStore();
 
 const onSubmit = async () => {
-  console.log('Prueba onSubmit')
   const response = await recEmail(email.value);
   if (response) {
     alert("Email no registrado");

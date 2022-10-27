@@ -3,7 +3,15 @@
     <div>
       <article v-if="auth.isAuth" class="message">
         <div class="message-body">
-          Ya has iniciado seción:
+          <div class="icon-text">
+            <div class="icon-text">
+  <span class="icon has-text-warning">
+    <i class="fas fa-exclamation-triangle"></i>
+  </span>
+  <span>Ya has iniciado sesión</span>
+</div>
+</div>
+          
           <router-link :to="{ name: 'home' }"> Ir a Home </router-link>
         </div>
       </article>
@@ -49,7 +57,7 @@
               <br />
               <br />
               <h3>¿Has olvidado tu contraseña?</h3>
-              <router-link :to="{ name: 'password' }">
+              <router-link class="linkPass" :to="{ name: 'password' }">
                 Recuperar contraseña
               </router-link>
             </div>
@@ -57,7 +65,7 @@
         </form>
         <div>
           ¿Todavía no tienes una cuenta?
-          <router-link :to="{ name: 'signin' }"> Registrar </router-link>
+          <router-link class="linkPass" :to="{ name: 'signin' }"> Registrar </router-link>
         </div>
       </div>
     </div>
@@ -97,6 +105,11 @@ const onSubmit = async () => {
   margin-top: 50px;
   width: 200%;
 }
+.linkPass{
+  color: rgb(78, 77, 77);
+  text-decoration: underline;
+  
+}
 
 @media (min-width: 1000px) {
   .container {
@@ -107,6 +120,7 @@ const onSubmit = async () => {
     margin-top: 50px;
   }
 }
+
 /* .loginContainer {
   display: flex;
   justify-content: center;

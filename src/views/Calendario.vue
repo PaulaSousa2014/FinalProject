@@ -1,11 +1,25 @@
 <template>
-   <div class="box alerta"> En construcción...
+    <div>
+<br>
+    <div class="loginLink" v-if="!auth.isAuth">
+        <Login />
+          
+    </div>
+
+   <div v-else class="box alerta"> En construcción...
+    <br>
 <progress class="progress is-dark" max="100">1%</progress>
 
-</div>
 
+
+
+</div>
+</div>
 </template>
-<script>
+<script setup>
+import Login from "../components/Login.vue";
+import { useAuthStore } from "../store";
+const auth = useAuthStore();
 
 
 </script>
@@ -19,3 +33,38 @@
     font-weight: bold;
 }
 </style>
+
+<!-- <template>
+  <div>
+    <vue-tailwind-datepicker
+      ref="myRef"
+      :formatter="formatter"
+      v-model="dateValue"
+    />
+  </div>
+</template>
+
+<script>
+import { ref } from 'vue';
+import VueTailwindDatepicker from 'vue-tailwind-datepicker';
+
+export default {
+  components: {
+    VueTailwindDatepicker
+  },
+  setup() {
+    const myRef = ref(null);
+    const dateValue = ref([]);
+    const formatter = ref({
+      date: 'DD MMM YYYY',
+      month: 'MMM'
+    });
+
+    return {
+      myRef,
+      dateValue,
+      formatter
+    };
+  }
+};
+</script> -->

@@ -1,4 +1,5 @@
 <template>
+  <div class="caja">
     <form class="box" @submit.prevent="onSubmit">
  <div class="field">
   <label class="label">Título*</label>
@@ -17,14 +18,19 @@
 
 <div class="field is-grouped">
   <div class="control">
-    <button class="button is-link is-success is-light is-outlined" type="submit">Añadir tarea</button>
+    <button class="button is-link is-success is-light is-outlined" type="submit"><i class="fa-solid fa-square-plus"></i></button>
   </div>
   <div class="control">
-    <!-- TODO No funciona el boton cancelar -->
-    <button @click="cancelarTarea" class="button is-link is-danger is-light is-outlined" type="button">Cancelar</button>
+   
+    <button @click="cancelarTarea" class="button is-link is-danger is-light is-outlined" type="button"> <i class="fa-solid fa-ban"></i>Cancelar</button>
   </div>
 </div>
 </form>
+<br>
+<br>
+<br>
+<br>
+</div>
 
 </template>
 
@@ -79,5 +85,15 @@ textarea {
 h2 {
   font-weight: bold;
 }
+
+
+  .caja{
+width: 70vw;
+margin-left: 15%;
+margin-top: 8%;
+
+
+}
+
 
 </style>

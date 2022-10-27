@@ -27,18 +27,20 @@
     <div class="field is-grouped">
       <div class="control">
         <button
-          class="button is-link is-success is-light is-outlined"
+          class="button is-link is-success is-light is-outlined is-responsive is-small"
           type="submit"
         >
+        <i class="fa-solid fa-repeat"></i>
           Actualizar
         </button>
       </div>
       <div class="control">
         <button
           @click="editar = false"
-          class="button is-link is-danger is-light is-outlined"
+          class="button is-link is-danger is-light is-outlined is-responsive is-small"
           type="button"
         >
+        <i class="fa-solid fa-ban"></i>
           Cancelar
         </button>
       </div>
@@ -51,9 +53,6 @@
         {{ task.title }}
       </p>
       <button class="card-header-icon" aria-label="more options">
-        <span class="icon">
-          <i class="fas fa-angle-down" aria-hidden="true"></i>
-        </span>
       </button>
     </header>
     <br />
@@ -65,8 +64,9 @@
     <form class="field">
       <div class="fieldTask">
         <div class="control">
+         
           
-          <h2>Completada</h2>
+          <h2>   Completada </h2>
 
           <label class="switch">
             <input
@@ -82,17 +82,17 @@
     <footer class="card-footer">
       <button
         @click="editar = true"
-        class="button is-success is-light is-outlined"
+        class="button is-success is-light is-outlined is-responsive is-small"
       >
-        Editar
+      <i class="fa-solid fa-pen-to-square"></i>
       </button>
 
     
       <button
         @click="borrarTarea"
-        class="button is-danger is-light is-outlined"
+        class="button is-danger is-light is-outlined is-responsive is-small"
       >
-        Eliminar
+      <i class="fa-solid fa-trash"></i>
       </button>
     </footer>
   </div>
@@ -236,10 +236,10 @@ input:checked + .slider:before {
 
 
 
-
+/* 
 @media (min-width: 840px){
   .cardShow{
   margin-left: 30px;
 }
-}
+} */
 </style>

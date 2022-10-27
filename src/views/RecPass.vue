@@ -64,7 +64,6 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { registro } from "../api/index";
 import { useAuthStore } from "../store";
 import { updateUser } from "../api/index";
 

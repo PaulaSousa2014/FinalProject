@@ -44,6 +44,11 @@ const routes = [
         name: 'changePass',
         component: () => import('../views/RecPass.vue')
     },
+    {
+        path: '/privacy',
+        name: 'privacy',
+        component: () => import('../views/Privacy.vue')
+    },
 ]
 
 const router = createRouter({

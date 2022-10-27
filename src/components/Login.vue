@@ -1,14 +1,14 @@
 <template>
   <div class="loginContainer">
     <div>
-      <article v-if="auth.isAuth" class="message">
+      <!-- <article v-if="auth.isAuth" class="message">
         <div class="message-body">
           Ya has iniciado seción:
           <router-link :to="{ name: 'home' }"> Ir a Home </router-link>
         </div>
-      </article>
+      </article> -->
 
-      <div v-else class="login">
+      <div class="login">
         <form class="box" @submit.prevent="onSubmit">
           <div class="field"></div>
           <div class="field">
@@ -43,7 +43,7 @@
               <br />
               <br />
               <h3>¿Has olvidado tu contraseña?</h3>
-              <router-link :to="{ name: 'password' }">
+              <router-link class="linkPass" :to="{ name: 'password' }">
                 Recuperar contraseña
               </router-link>
             </div>
@@ -51,7 +51,7 @@
         </form>
         <div>
           ¿Todavía no tienes una cuenta?
-          <router-link :to="{ name: 'signin' }"> Registrar </router-link>
+          <router-link class="linkPass" :to="{ name: 'signin' }"> Registrar </router-link>
         </div>
       </div>
     </div>
@@ -83,6 +83,11 @@ const onSubmit = async () => {
 };
 </script>
 <style scoped>
+.linkPass{
+  color: rgb(78, 77, 77);
+  text-decoration: underline;
+  
+}
 @media (min-width: 1000px) {
   .login {
     width: 70%;
@@ -97,12 +102,12 @@ const onSubmit = async () => {
   justify-content: center;
   width: 100%;
 } */
-.login {
+/* .login {
   width: 200%;
-}
+} */
 .login {
-    width: 100%;
-   
+    width: 90%;
+    margin-left: 5%;
     margin-top: 50px;
   }
 </style>
