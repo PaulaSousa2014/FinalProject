@@ -1,6 +1,9 @@
 <template>
+  <!-- Pestaña de Calendario. A principio fue creada para vizualizar las taareas con fecha 
+    de finaliazación en un calendario. Pero todavia esta en construcción-->
     <div>
 <br>
+<!-- Verifica si el usuario esta logeado, sino lo redirecciona al componente Login -->
     <div class="loginLink" v-if="!auth.isAuth">
         <Login />
           
@@ -33,6 +36,7 @@ const auth = useAuthStore();
     font-weight: bold;
 }
 </style>
+
 
 <!-- <template>
   <div>

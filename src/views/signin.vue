@@ -1,6 +1,10 @@
 <template>
-  <div>
-    <article v-if="auth.isAuth" class="message">
+  <!-- Pestaña de registro de nuevos usuarios -->
+  <div v-if="auth.isAuth">
+    <!-- Verifica que el usuario no tiene iniciado una sesión. En caso de esta logeado,
+       le saltara una alerta -->
+       <!-- TODO poner icono en alerta -->
+    <article  class="message">
       <div class="message-body">
         ¡Ya has iniciado seccion! <br />
         <br />
@@ -8,8 +12,8 @@
       </div>
     </article>
   </div>
-
-  <div class="section">
+<!-- En caso de no estar logeado, el usuario entrara en la pestaña Registro -->
+  <div v-else class="section">
     <div class="container">
       <form class="box" @submit.prevent="onSubmit">
         <div class="field">
@@ -41,29 +45,40 @@
             <input
               v-model="pass1"
               class="input"
-              :type="visibility ? 'text': 'password'"
+              :type="visibility ? 'text' : 'password'"
               placeholder="*******"
               required
             />
-            <span @click="visibility=!visibility" class="icon is-small is-right is-clickable"><i class="fa-solid fa-eye"></i></span>
+            <span
+              @click="visibility = !visibility"
+              class="icon is-small is-right is-clickable"
+              ><i class="fa-solid fa-eye"></i
+            ></span>
           </div>
         </div>
         <div class="field">
           <label class="label">Confirmar contraseña</label>
           <div class="control has-icons-right">
+            <!-- Creamos la funcionalidad de que el usuario pueda ver la password que 
+                esta introduciendo al clicar en la imagen del ojo en el campo password -->
             <input
               v-model="pass2"
               class="input"
-              :type="visibility ? 'text': 'password'" 
+              :type="visibility ? 'text' : 'password'"
               placeholder="*******"
               required
             />
-            <span @click="visibility=!visibility" class="icon is-small is-right is-clickable"><i class="fa-solid fa-eye"></i></span>
+            <span
+              @click="visibility = !visibility"
+              class="icon is-small is-right is-clickable"
+              ><i class="fa-solid fa-eye"></i
+            ></span>
           </div>
         </div>
-        <!--  Arriba es una condicion ternaria para cambiar el contenido del type segun valor bolleano -->
-              <!-- <button type="button"  @click="visibility=!visibility">show</button> -->
-        
+        <!-- Utilizo en type del input password una condicion ternaria para cambiar el contenido 
+                del type segun valor bolleano (text o password) para dar funcionalidad a la opción de
+                visualizar contraseña mientras escribe -->
+
         <div class="field">
           <div class="control">
             <input
@@ -92,12 +107,14 @@ const pass1 = ref("");
 const pass2 = ref("");
 const visibility = ref(false);
 
+// Función para realizar el registro del usuario y conectar con supabase
 const onSubmit = async () => {
   if (comprobarClave() == true) {
     await registro(email.value, pass1.value);
     router.push({ name: "home" });
   }
 };
+// Función para comprobar que las dos contraseñas introducidas son iguales
 const comprobarClave = () => {
   if (pass1.value !== pass2.value) {
     alert("Las dos contraseñas no coinciden");

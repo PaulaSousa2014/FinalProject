@@ -1,17 +1,11 @@
+/* Importamos librerias de bulma y de fontawsome */
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css";
 
-:root{
-    /* background-color:#eee; */
-    background-image: url('./assets/vectorstock_32058494.png');
-    
-    
+:root {
+  background-image: url("./assets/vectorstock_32058494.png");
 }
-.navbar-brand{
-    background-color: #eee;
-    width: 100%;   
-    
-    
+.navbar-brand {
+  background-color: #eee;
+  width: 100%;
 }
-
-

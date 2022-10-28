@@ -1,5 +1,8 @@
 <template>
-    <!-- Cambiar contraseña -->
+      <!-- Pestaña Cambiar contraseña. Esta será la pestaña que el usuario utilizara para 
+        realizar el cambio de contraseña. A principio la idea era tener una opción donde se
+        introduciera la contraseña actual y despues las nuevas. Pero supabase no da esta opción.
+        Por esto, esta pertaña tiene la misma funcionalidad que el cambio de contraseña de la pestaña Perfil. -->
     <div class="section">
     <div class="container">
       <form class="box" @submit.prevent="onSubmit">

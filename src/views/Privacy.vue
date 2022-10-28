@@ -1,23 +1,23 @@
 <template>
-    <br>
+  <!-- Pestaña de politica de privaciada solo para fines educativos -->
+  <br />
   <div class="datos">
     <h1>POLÍTICA DE PRIVACIDAD Y PROTECCIÓN DE DATOS</h1>
-    <br>
+    <br />
 
     <p>Esta app esta diseñada para uso experimental.</p>
     <p>
       Los dados guardados seran utilizados unicamente para dar utilidad a la
       aplicación y bajo ningun concepto serán compartidos a terceros.
-      
     </p>
   </div>
 </template>
 <script setup></script>
 <style scoped>
-.datos{
-    text-align: center;
+.datos {
+  text-align: center;
 }
-h1{
-    font-weight: bold;
+h1 {
+  font-weight: bold;
 }
 </style>

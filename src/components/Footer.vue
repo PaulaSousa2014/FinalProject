@@ -12,6 +12,8 @@ href="https://www.linkedin.com/in/paula-sousa-68bb52187/"><i class="fa-brands fa
 <a class="gitLogo" 
 href="https://github.com/PaulaSousa2014"><i class="fa-brands fa-github"></i></a>
 </div>
+
+
 </footer>
 
 </template>
@@ -23,6 +25,7 @@ href="https://github.com/PaulaSousa2014"><i class="fa-brands fa-github"></i></a>
     background-color: rgb(158, 156, 156);
     height: 100px;
     text-align: center;
+    
 }
 a{
     margin-left: 5px;
