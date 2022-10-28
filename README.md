@@ -11,9 +11,9 @@ El formulario de registro (Sign up) solicite al usuario una dirección de correo
 El formulario de inicio de sesión (Log in) solicite un correo electrónico y una contraseña al usuario.
 2.  Tras iniciar la sesión, la aplicación debe obtener y mostrar todas las tareas de la lista de tareas del usuario conectado almacenada en Supabase.
 3.  Vuestra aplicación debe permitir:
-- Añadir tareas nuevas  :signo_de_suma_grueso:
-- Editar las tareas existentes  :nota:
-- Marcar las tareas como completas/incompletas :marca_de_verificación_blanca:
-- Eliminar tareas existentes (tanto completas como incompletas)  :la_basura_en_su_lugar:
-4.  Es IMPRESCINDIBLE que hagáis al menos un COMMIT/PUSH diario a vuestro repositorio en GiHub. No obstante, es más que recomendable que hagáis commits con cierta frecuencia, es una buena práctica que vale la pena que incorporéis cuanto antes a vuestro proceso de trabajo. Y hablando de buenas prácticas…
-5.  Vuestra aplicación debe estar desplegada en línea usando GitHub Pages.
+- Añadir tareas nuevas  
+- Editar las tareas existentes  
+- Marcar las tareas como completas/incompletas 
+- Eliminar tareas existentes (tanto completas como incompletas)  
+1.  Es IMPRESCINDIBLE que hagáis al menos un COMMIT/PUSH diario a vuestro repositorio en GiHub. No obstante, es más que recomendable que hagáis commits con cierta frecuencia, es una buena práctica que vale la pena que incorporéis cuanto antes a vuestro proceso de trabajo. Y hablando de buenas prácticas…
+2.  Vuestra aplicación debe estar desplegada en línea usando GitHub Pages.
