@@ -1,7 +1,7 @@
-###FINAL PROYECT BOOTCAMP IRONHACK FRONTEND
+FINAL PROYECT BOOTCAMP IRONHACK FRONTEND
 
 
-#En este proyecto, vais a construir una aplicación con un CRUD tipo ToDo List con Vue.js.
+En este proyecto, vais a construir una aplicación con un CRUD tipo ToDo List con Vue.js.
 #La app estará vinculada a una base de datos, donde se almacenarán los datos de los usuarios y sus respectivas #tareas. La base de datos que utilizaremos para este proyecto es Supabase. También usaremos Vite como #herramienta de construcción para compilar nuestro código y proporcionar un servidor de desarrollo mientras #trabajamos.
 #El objetivo principal de este proyecto es asegurar que tu aplicación funcione perfectamente, pero si tienes #tiempo, puedes darle el estilo que quieras para obtener puntos extra.
 ##Requisitos del proyecto
@@ -14,5 +14,5 @@
 - Editar las tareas existentes  :nota:
 - Marcar las tareas como completas/incompletas :marca_de_verificación_blanca:
 - Eliminar tareas existentes (tanto completas como incompletas)  :la_basura_en_su_lugar:
-4.  Es IMPRESCINDIBLE que hagáis al menos un COMMIT/PUSH diario a vuestro repositorio en GiHub. No obstante, #es más que recomendable que hagáis commits con cierta frecuencia, es una buena práctica que vale la pena que #incorporéis cuanto antes a vuestro proceso de trabajo. Y hablando de buenas prácticas…
+4.  Es IMPRESCINDIBLE que hagáis al menos un COMMIT/PUSH diario a vuestro repositorio en GiHub. No obstante, es más que recomendable que hagáis commits con cierta frecuencia, es una buena práctica que vale la pena que #incorporéis cuanto antes a vuestro proceso de trabajo. Y hablando de buenas prácticas…
 5.  Vuestra aplicación debe estar desplegada en línea usando GitHub Pages.
