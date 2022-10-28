@@ -67,25 +67,12 @@
           <a @click="isActive=!isActive" class="navbar-item">
             <router-link  class="links" :to="{ name: 'login' }">Iniciar Sesión</router-link>
           </a>
-          <a @click="authStore.logout()" class="navbar-item links"> Cerrar sesion </a>
+          <a @click="cerrar" class="navbar-item links"> Cerrar sesion </a>
         </div>
       </div>
     </div>
     </div>
 
-    <!-- <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-           <a class="button is-info is-light is-outlined is-responsive">
-            <router-link :to="{name: 'signin'}">Registrar</router-link>
-          </a> 
-           <a class="button is-info is-light is-outlined is-responsive">
-            <router-link :to="{name: 'login'}">Login</router-link>
-          </a> 
-        
-        </div>
-      </div>
-    </div> -->
   </nav>
   
   
@@ -102,6 +89,12 @@ import Footer from "./components/Footer.vue"
 const authStore = useAuthStore();
 
 const isActive = ref(true);
+const cerrar = ()=>{
+  authStore.logout();
+  isActive.value= !isActive.value;
+  
+
+} 
 
 </script>
 <style scoped>
@@ -139,8 +132,8 @@ const isActive = ref(true);
 display: flex;
 justify-content: space-between;
 align-items: flex-start;
-margin-bottom: 10px;
-margin-top: 10px;
+margin-bottom: 3px;
+margin-top: 3px;
 }
 
 #navMenu{
@@ -150,7 +143,9 @@ margin-top: 10px;
   color: rgb(146, 145, 145);
 }
 a:hover {
-  background-color: #eee;
+  /* background-color: #eee; */
+  text-decoration: underline;
+  text-decoration-color: white;
 }
 img{
   width: 70px;
